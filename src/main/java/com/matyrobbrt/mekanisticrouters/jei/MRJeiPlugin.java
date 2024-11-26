@@ -10,6 +10,8 @@ import mekanism.common.registries.MekanismBlocks;
 import mekanism.common.registries.MekanismItems;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
+import mezz.jei.api.constants.VanillaTypes;
+import mezz.jei.api.registration.IIngredientAliasRegistration;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 
@@ -27,6 +29,13 @@ public class MRJeiPlugin implements IModPlugin {
                     }
                     return stack;
                 });
+    }
+
+    @Override
+    public void registerIngredientAliases(IIngredientAliasRegistration registration) {
+        registration.addAlias(VanillaTypes.ITEM_STACK, MekRouters.CHEMICAL_UPGRADE.toStack(), "Gas Upgrade");
+        registration.addAlias(VanillaTypes.ITEM_STACK, MekRouters.CHEMICAL_MODULE_1.toStack(), "Gas Module Mk1");
+        registration.addAlias(VanillaTypes.ITEM_STACK, MekRouters.CHEMICAL_MODULE_2.toStack(), "Gas Module Mk2");
     }
 
     @Override

@@ -9,5 +9,7 @@
   "item.mekanisticrouters.chemical_module_mk1": "Chemical Module Mk1",
   "item.mekanisticrouters.chemical_upgrade": "Chemical Transfer Upgrade",
 
-  "mekanisticrouters.itemText.usage.item.chemical_upgrade": "Increases the amount of fluid a router can transfer (in each direction) by %d mB/tick"
+  "mekanisticrouters.itemText.usage.item.chemical_upgrade": "Increases the amount of fluid a router can transfer (in each direction) by %d mB/tick",
+  "mekanisticrouters.itemText.usage.item.chemical_module_mk1": "Transfers chemicals into or out of the router to/from an adjacent block in the module's direction.\n• Router's buffer must have a chemical container item in it.",
+  "mekanisticrouters.itemText.usage.item.chemical_module_mk2": "Transfers chemicals into or out of the router to/from any nearby block.\n• Router's buffer must have a chemical container item in it.\n• Can transfer to/from tanks."
 }
