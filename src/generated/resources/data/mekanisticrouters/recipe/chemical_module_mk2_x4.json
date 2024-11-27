@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "mekanisticrouters:chemical_module_mk1"
+    },
+    {
+      "item": "mekanisticrouters:chemical_module_mk1"
+    },
+    {
+      "item": "mekanisticrouters:chemical_module_mk1"
+    },
+    {
+      "item": "mekanisticrouters:chemical_module_mk1"
+    },
+    {
+      "item": "minecraft:prismarine_shard"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "mekanisticrouters:chemical_module_mk2"
+  }
+}

@@ -13,10 +13,10 @@ import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
-public class ModItemModelProvider extends ItemModelProvider {
+public class MRItemModelProvider extends ItemModelProvider {
     private static final ResourceLocation GENERATED = ResourceLocation.parse("item/generated");
 
-    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+    public MRItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator.getPackOutput(), MekRouters.MOD_ID, existingFileHelper);
     }
 

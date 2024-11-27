@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "tag": "c:glass_blocks/cheap"
+    },
+    "M": {
+      "item": "modularrouters:blank_module"
+    },
+    "O": {
+      "tag": "c:ingots/osmium"
+    }
+  },
+  "pattern": [
+    " O ",
+    "GMG",
+    " O "
+  ],
+  "result": {
+    "count": 1,
+    "id": "mekanisticrouters:chemical_module_mk1"
+  }
+}

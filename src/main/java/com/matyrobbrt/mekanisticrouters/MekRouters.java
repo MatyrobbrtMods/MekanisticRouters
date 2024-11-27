@@ -1,6 +1,7 @@
 package com.matyrobbrt.mekanisticrouters;
 
-import com.matyrobbrt.mekanisticrouters.data.ModItemModelProvider;
+import com.matyrobbrt.mekanisticrouters.data.MRItemModelProvider;
+import com.matyrobbrt.mekanisticrouters.data.MRRecipesProvider;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalModule1;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalModule2;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalSettings;
@@ -71,7 +72,10 @@ public final class MekRouters {
 
         bus.addListener((final GatherDataEvent event) -> {
             event.getGenerator().addProvider(
-                    event.includeClient(), new ModItemModelProvider(event.getGenerator(), event.getExistingFileHelper())
+                    event.includeClient(), new MRItemModelProvider(event.getGenerator(), event.getExistingFileHelper())
+            );
+            event.getGenerator().addProvider(
+                    event.includeServer(), new MRRecipesProvider(event.getGenerator().getPackOutput(), event.getLookupProvider())
             );
         });
 

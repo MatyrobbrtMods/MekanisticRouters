@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_bm": {
+      "conditions": {
+        "items": [
+          {
+            "items": "modularrouters:blank_module"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mekanisticrouters:chemical_upgrade"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_bm"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mekanisticrouters:chemical_upgrade"
+    ]
+  }
+}
