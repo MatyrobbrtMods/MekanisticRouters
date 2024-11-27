@@ -14,6 +14,9 @@ public class MRConfig {
     public static final ModConfigSpec.IntValue CHEMICAL_MODULE_2FE = BUILDER.comment("Energy cost (FE) to run one operation for the Chemical Module Mk2")
             .defineInRange("chemicalModule2EnergyCost", 0, 0, Integer.MAX_VALUE);
 
+    public static final ModConfigSpec.IntValue CHEMICAL_REFILL_MODULE_FE = BUILDER.comment("Energy cost (FE) to run one operation for the Chemical Refill Module")
+            .defineInRange("chemicalRefillModuleEnergyCost", 0, 0, Integer.MAX_VALUE);
+
     public static final ModConfigSpec.IntValue CHEMICAL_MODULE_2_BASE_RANGE = BUILDER.comment("Base range for Chemical Module Mk2 (no range upgrades)")
             .defineInRange("chemicalModule2BaseRange", 12, 1, Integer.MAX_VALUE);
     public static final ModConfigSpec.IntValue CHEMICAL_MODULE_2_MAX_RAMGE = BUILDER.comment("Max range for Chemical Module Mk2")

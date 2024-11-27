@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "H": {
+      "item": "minecraft:diamond_helmet"
+    },
+    "M": {
+      "item": "mekanisticrouters:chemical_module_mk2"
+    },
+    "S": {
+      "item": "minecraft:wither_skeleton_skull"
+    }
+  },
+  "pattern": [
+    "H",
+    "M",
+    "S"
+  ],
+  "result": {
+    "count": 1,
+    "id": "mekanisticrouters:chemical_refill_module"
+  }
+}

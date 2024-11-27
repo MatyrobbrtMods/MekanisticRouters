@@ -12,9 +12,10 @@ import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
 @Mod(value = MekRouters.MOD_ID, dist = Dist.CLIENT)
 public class MekRoutersClient {
     public MekRoutersClient(IEventBus bus) {
-        bus.addListener((final RegisterMenuScreensEvent event) -> event.register(
-                MekRouters.CHEMICAL_MODULE_MENU.get(), ChemicalModuleScreen::new
-        ));
+        bus.addListener((final RegisterMenuScreensEvent event) -> {
+            event.register(MekRouters.CHEMICAL_MODULE_MENU.get(), ChemicalModuleScreen::new);
+            event.register(MekRouters.CHEMICAL_REFILL_MODULE_MENU.get(), ChemicalRefillModuleScreen::new);
+        });
 
         bus.addListener((final RegisterColorHandlersEvent.Item event) -> {
             for (var item : MekRouters.ITEMS.getEntries()) {

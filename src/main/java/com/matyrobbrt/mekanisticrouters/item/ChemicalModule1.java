@@ -178,6 +178,6 @@ public class ChemicalModule1 extends ModuleItem {
     }
 
     public static int getRouterMaxTransfer(ModularRouterBlockEntity router) {
-        return (MRConfig.BASE_CHEMICAL_RATE.getAsInt() + router.getUpgradeCount(MekRouters.CHEMICAL_UPGRADE.get()) * MRConfig.CHEMICAL_UPGRADE_MB.getAsInt());
+        return MRConfig.BASE_CHEMICAL_RATE.getAsInt() + router.getUpgradeCount(MekRouters.CHEMICAL_UPGRADE.get()) * MRConfig.CHEMICAL_UPGRADE_MB.getAsInt();
     }
 }

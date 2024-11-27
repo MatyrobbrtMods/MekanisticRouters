@@ -1,9 +1,11 @@
-// 1.21.1	2024-11-27T18:01:23.7561911	Recipes
+// 1.21.1	2024-11-27T19:22:46.5825224	Recipes
 dfd651a1421b971d742d65f3527edb1cb3b0c822 data/mekanisticrouters/advancement/recipes/misc/chemical_module_mk1.json
 72df60bd951d08f98ff6782a74c195879c05ea1e data/mekanisticrouters/advancement/recipes/misc/chemical_module_mk2.json
 5daa0c9691b74a01a24ceabd1c06489f14f845d9 data/mekanisticrouters/advancement/recipes/misc/chemical_module_mk2_x4.json
+af31c2ffaf849bb6ac1f9b81fc1d449de5c62e55 data/mekanisticrouters/advancement/recipes/misc/chemical_refill_module.json
 f6dc4aaf5b933f55ca6620bdea8495699da92b01 data/mekanisticrouters/advancement/recipes/misc/chemical_upgrade.json
 04d02c87a9f1dee14611229f00fd4f184339e52c data/mekanisticrouters/recipe/chemical_module_mk1.json
 534b315d443e0b72802b1351839b084545146376 data/mekanisticrouters/recipe/chemical_module_mk2.json
 e9f5c3461292e2ae066fd294c702d5727d203a38 data/mekanisticrouters/recipe/chemical_module_mk2_x4.json
+c5ae2c741068ffb595426e23c39bd092cf52f8dd data/mekanisticrouters/recipe/chemical_refill_module.json
 cca4f399f3de028d55353a0d0acd2a617693aef8 data/mekanisticrouters/recipe/chemical_upgrade.json

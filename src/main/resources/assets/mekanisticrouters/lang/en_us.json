@@ -7,9 +7,13 @@
 
   "item.mekanisticrouters.chemical_module_mk2": "Chemical Module Mk2",
   "item.mekanisticrouters.chemical_module_mk1": "Chemical Module Mk1",
+  "item.mekanisticrouters.chemical_refill_module": "Chemical Refill Module",
   "item.mekanisticrouters.chemical_upgrade": "Chemical Transfer Upgrade",
 
   "mekanisticrouters.itemText.usage.item.chemical_upgrade": "Increases the amount of fluid a router can transfer (in each direction) by %d mB/tick",
   "mekanisticrouters.itemText.usage.item.chemical_module_mk1": "Transfers chemicals into or out of the router to/from an adjacent block in the module's direction.\n• Router's buffer must have a chemical container item in it.",
-  "mekanisticrouters.itemText.usage.item.chemical_module_mk2": "Transfers chemicals into or out of the router to/from any nearby block.\n• Router's buffer must have a chemical container item in it.\n• Can transfer to/from tanks."
+  "mekanisticrouters.itemText.usage.item.chemical_module_mk2": "Transfers chemicals into or out of the router to/from any nearby block.\n• Router's buffer must have a chemical container item in it.\n• Can transfer to/from tanks.",
+  "mekanisticrouters.itemText.usage.item.chemical_refill_module": "Wireless refills chemical container items (such as Jetpacks) in a player's inventory.",
+
+  "mekanisticrouters.guiText.popup.chemical_refill.control": "§a§Chemical Refill Module§r\n\nHere you can define: \n- Which section of the player inventory should be interacted with.\n\nThe filter controls what items can receive chemicals from this module."
 }

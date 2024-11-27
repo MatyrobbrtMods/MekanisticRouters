@@ -4,6 +4,7 @@ import com.matyrobbrt.mekanisticrouters.data.MRItemModelProvider;
 import com.matyrobbrt.mekanisticrouters.data.MRRecipesProvider;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalModule1;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalModule2;
+import com.matyrobbrt.mekanisticrouters.item.ChemicalRefillModule;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalSettings;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalUpgrade;
 import me.desht.modularrouters.container.ModuleMenu;
@@ -53,8 +54,13 @@ public final class MekRouters {
             b.persistent(ChemicalSettings.CODEC).networkSynchronized(ChemicalSettings.STREAM_CODEC));
     public static final DeferredHolder<MenuType<?>, MenuType<ModuleMenu>> CHEMICAL_MODULE_MENU = MENU_TYPES.register("chemical_module", () -> IMenuTypeExtension.create(MekRouters::createChemicalMenu));
 
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<ChemicalRefillModule.RefillSettings>> REFILL_SETTINGS = COMPONENTS.registerComponentType("refill_settings", b ->
+            b.persistent(ChemicalRefillModule.RefillSettings.CODEC).networkSynchronized(ChemicalRefillModule.RefillSettings.STREAM_CODEC));
+    public static final DeferredHolder<MenuType<?>, MenuType<ModuleMenu>> CHEMICAL_REFILL_MODULE_MENU = MENU_TYPES.register("chemical_refill_module", () -> IMenuTypeExtension.create(MekRouters::createChemicalRefillMenu));
+
     public static final DeferredItem<ChemicalModule1> CHEMICAL_MODULE_1 = ITEMS.register("chemical_module_mk1", () -> new ChemicalModule1(ModItems.moduleProps()));
     public static final DeferredItem<ChemicalModule2> CHEMICAL_MODULE_2 = ITEMS.register("chemical_module_mk2", ChemicalModule2::new);
+    public static final DeferredItem<ChemicalRefillModule> CHEMICAL_REFILL_MODULE = ITEMS.register("chemical_refill_module", ChemicalRefillModule::new);
     public static final DeferredItem<ChemicalUpgrade> CHEMICAL_UPGRADE = ITEMS.register("chemical_upgrade", ChemicalUpgrade::new);
 
     public MekRouters(final IEventBus bus, final ModContainer container) {
@@ -67,6 +73,7 @@ public final class MekRouters {
                 event.accept(CHEMICAL_UPGRADE);
                 event.accept(CHEMICAL_MODULE_1);
                 event.accept(CHEMICAL_MODULE_2);
+                event.accept(CHEMICAL_REFILL_MODULE);
             }
         });
 
@@ -94,6 +101,10 @@ public final class MekRouters {
 
     private static ModuleMenu createChemicalMenu(int windowId, Inventory inv, FriendlyByteBuf extra) {
         return new ModuleMenu(CHEMICAL_MODULE_MENU.get(), windowId, inv, extra);
+    }
+
+    private static ModuleMenu createChemicalRefillMenu(int windowId, Inventory inv, FriendlyByteBuf extra) {
+        return new ModuleMenu(CHEMICAL_REFILL_MODULE_MENU.get(), windowId, inv, extra);
     }
 
     public static ChemicalStack tryChemicalTransfer(IChemicalHandler chemSource, IChemicalHandler chemDest, long maxAmount, boolean doTransfer) {

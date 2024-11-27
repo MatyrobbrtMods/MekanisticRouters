@@ -52,5 +52,13 @@ public class MRRecipesProvider extends RecipeProvider {
                 .define('M', ModItems.BLANK_UPGRADE)
                 .define('G', Tags.Items.GLASS_BLOCKS_CHEAP)
                 .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, MekRouters.CHEMICAL_REFILL_MODULE)
+                .pattern("H").pattern("M").pattern("S")
+                .unlockedBy("has_bm", has(ModItems.BLANK_MODULE))
+                .define('H', Items.DIAMOND_HELMET)
+                .define('M', MekRouters.CHEMICAL_MODULE_2)
+                .define('S', Items.WITHER_SKELETON_SKULL)
+                .save(recipeOutput);
     }
 }
