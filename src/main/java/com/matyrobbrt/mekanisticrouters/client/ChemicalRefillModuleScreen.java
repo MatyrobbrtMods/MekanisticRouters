@@ -7,8 +7,8 @@ import me.desht.modularrouters.client.gui.widgets.button.ItemStackCyclerButton;
 import me.desht.modularrouters.container.ModuleMenu;
 import me.desht.modularrouters.core.ModBlocks;
 import me.desht.modularrouters.util.MiscUtil;
-import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
@@ -54,11 +54,7 @@ public class ChemicalRefillModuleScreen extends ModuleScreen {
     }
 
     @Override
-    protected ItemStack buildModifiedItemStack() {
-        return Util.make(super.buildModifiedItemStack(), stack ->
-                stack.set(MekRouters.REFILL_SETTINGS, new ChemicalRefillModule.RefillSettings(
-                        secButton.getState()
-                ))
-        );
+    protected void buildComponentPatch(DataComponentPatch.Builder builder) {
+        builder.set(MekRouters.REFILL_SETTINGS.get(), new ChemicalRefillModule.RefillSettings(secButton.getState()));
     }
 }

@@ -18,6 +18,7 @@ import mekanism.common.registries.MekanismItems;
 import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.sounds.SoundManager;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
@@ -99,14 +100,12 @@ public class ChemicalModuleScreen extends ModuleScreen {
     }
 
     @Override
-    protected ItemStack buildModifiedItemStack() {
-        return Util.make(super.buildModifiedItemStack(), stack ->
-                stack.set(MekRouters.CHEMICAL_SETTINGS, new ChemicalSettings(
-                        fluidDir.getState(),
-                        maxTransferField.getIntValue(),
-                        regulationTypeButton.regulateAbsolute
-                ))
-        );
+    protected void buildComponentPatch(DataComponentPatch.Builder builder) {
+        builder.set(MekRouters.CHEMICAL_SETTINGS.get(), new ChemicalSettings(
+                fluidDir.getState(),
+                maxTransferField.getIntValue(),
+                regulationTypeButton.regulateAbsolute
+        ));
     }
 
     private static class TooltipButton extends ItemStackButton {
