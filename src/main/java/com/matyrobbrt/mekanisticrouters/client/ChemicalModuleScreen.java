@@ -1,7 +1,6 @@
 package com.matyrobbrt.mekanisticrouters.client;
 
 import com.matyrobbrt.mekanisticrouters.MekRouters;
-import com.matyrobbrt.mekanisticrouters.item.ChemicalModule1;
 import com.matyrobbrt.mekanisticrouters.item.ChemicalSettings;
 import me.desht.modularrouters.client.gui.module.ModuleScreen;
 import me.desht.modularrouters.client.gui.widgets.button.ItemStackButton;
@@ -15,7 +14,6 @@ import me.desht.modularrouters.core.ModBlocks;
 import me.desht.modularrouters.logic.settings.TransferDirection;
 import mekanism.common.registries.MekanismBlocks;
 import mekanism.common.registries.MekanismItems;
-import net.minecraft.Util;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.core.component.DataComponentPatch;
@@ -51,10 +49,9 @@ public class ChemicalModuleScreen extends ModuleScreen {
 
         var settings = moduleItemStack.getOrDefault(MekRouters.CHEMICAL_SETTINGS, ChemicalSettings.DEFAULT);
 
-        maxTransferField = new IntegerTextField(font, leftPos + 152, topPos + 23, 34, 12, Range.of(0, Integer.MAX_VALUE));
-        if (settings.maxTransfer() > 0) {
-            maxTransferField.setValue(settings.maxTransfer());
-        }
+        int max = ConfigHolder.common.router.baseTickRate.get() * ConfigHolder.common.router.fluidMaxTransferRate.get();
+        maxTransferField = new IntegerTextField(font, leftPos + 152, topPos + 23, 34, 12, Range.of(0, max));
+        maxTransferField.setValue(settings.maxTransfer());
         maxTransferField.setResponder(str -> sendModuleSettingsDelayed(5));
         maxTransferField.setIncr(100, 10, 10);
         maxTransferField.useGuiTextBackground();
@@ -101,6 +98,7 @@ public class ChemicalModuleScreen extends ModuleScreen {
 
     @Override
     protected void buildComponentPatch(DataComponentPatch.Builder builder) {
+        super.buildComponentPatch(builder);
         builder.set(MekRouters.CHEMICAL_SETTINGS.get(), new ChemicalSettings(
                 fluidDir.getState(),
                 maxTransferField.getIntValue(),
@@ -108,12 +106,18 @@ public class ChemicalModuleScreen extends ModuleScreen {
         ));
     }
 
-    private static class TooltipButton extends ItemStackButton {
+    private class TooltipButton extends ItemStackButton {
         TooltipButton(int x, int y, int width, int height, ItemStack renderStack) {
             super(x, y, width, height, renderStack, true, p -> {});
             List<Component> tooltip = new ArrayList<>();
             tooltip.add(xlate("mekanisticrouters.guiText.tooltip.chemicalTransferTooltip"));
             tooltip.add(Component.empty());
+            getItemRouter().ifPresent(router -> {
+                int ftRate = router.getFluidTransferRate();
+                int tickRate = router.getTickRate();
+                tooltip.add(xlate("modularrouters.guiText.tooltip.maxFluidPerOp", ftRate * tickRate, tickRate, ftRate));
+                tooltip.add(Component.empty().plainCopy());
+            });
             tooltip.add(xlate("modularrouters.guiText.tooltip.numberFieldTooltip"));
             ClientUtil.setMultilineTooltip(this, tooltip);
         }

@@ -8,6 +8,7 @@ import me.desht.modularrouters.logic.filter.Filter;
 import mekanism.api.MekanismAPI;
 import mekanism.api.chemical.Chemical;
 import mekanism.api.chemical.ChemicalStack;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ItemStack;
 
@@ -20,7 +21,7 @@ public record ChemicalFilter(Chemical chemical) implements IItemMatcher {
     }
 
     @Override
-    public boolean matchItem(ItemStack stack, IModuleFlags flags) {
+    public boolean matchItem(ItemStack stack, IModuleFlags flags, HolderLookup.Provider registryAccess) {
         return MekRouters.getStoredChemical(stack)
                 .map(ch -> matchChemical(ch.getChemical(), flags))
                 .orElse(false);
